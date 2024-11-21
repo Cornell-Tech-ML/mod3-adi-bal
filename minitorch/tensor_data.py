@@ -53,7 +53,7 @@ def index_to_position(index: Index, strides: Strides) -> int:  # task 2.1
     return return_position
 
 
-def to_index(ordinal: int, shape: Shape, out_index: OutIndex) -> None:  # task 2.1
+def to_index(ordinal: int, shape: Shape, out_index: OutIndex) -> None:
     """Convert an `ordinal` to an index in the `shape`.
     Should ensure that enumerating position 0 ... size of a
     tensor produces every index exactly once. It
@@ -66,11 +66,11 @@ def to_index(ordinal: int, shape: Shape, out_index: OutIndex) -> None:  # task 2
         out_index : return index corresponding to position.
 
     """
-    n = len(shape)
-    for i in range(n - 1, -1, -1):
-        out_index[i] = ordinal % shape[i]
-        ordinal = ordinal // shape[i]
-
+    cur_ord = ordinal + 0
+    for i in range(len(shape) - 1, -1, -1):
+        sh = shape[i]
+        out_index[i] = int(cur_ord % sh)
+        cur_ord = cur_ord // sh
 
 def broadcast_index(
     big_index: Index, big_shape: Shape, shape: Shape, out_index: OutIndex
