@@ -1,3 +1,7 @@
+"""The minitorch package provides various modules and functions
+for mathematical operations, tensor manipulations, and automatic differentiation.
+"""
+
 from .testing import MathTest, MathTestVariable  # type: ignore # noqa: F401,F403
 from .fast_ops import *  # noqa: F401,F403
 from .cuda_ops import *  # noqa: F401,F403
